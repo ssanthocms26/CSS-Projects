@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback design UI</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/acd2122c8a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="feedbackbox">
+      <div class="emoji">
+        <div id="emoji">
+          <img src="images/images_poor.png" alt="">
+          <img src="images/images_bad.png" alt="">
+          <img src="images/images_okay.png" alt="">
+          <img src="images/images_good.png" alt="">
+          <img src="images/images_excellent.png" alt="">
+        </div>
+      </div>
+      <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let stars = Array.from(document.getElementsByClassName('fas'));
+    let emoji = document.getElementById('emoji');
+
+    stars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        stars.forEach((rateStar, ind) => {
+          rateStar.style.color = "#e4e4e4";
+          if (ind <= index) {
+            rateStar.style.color = "#ffd93b";
+          }
+        })
+        let value = -(index * 100);
+        emoji.style.transform = `translateX(${value}px)`;
+      });
+    });
+  </script>
+</body>
+</html>
