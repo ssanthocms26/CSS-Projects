@@ -1,0 +1,40 @@
+.card {
+  perspective: 1500px;
+  position: relative;
+  width: 200px;
+  height: 300px;
+}
+
+.card-front {
+  background-color: #eee12d;
+  color: white;
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  transition: transform 5s;
+}
+
+.card-back {
+  background-color: orangered;
+  color: white;
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  transition: transform 5s;
+  transform: rotateY(180deg);
+}
+
+.card:hover .card-front {
+  transform: rotateY(-180deg);
+}
+
+.card:hover .card-back {
+  transform: rotateY(0deg);
+}
+/*# sourceMappingURL=main.css.map */
